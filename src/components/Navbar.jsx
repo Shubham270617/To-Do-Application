@@ -1,5 +1,6 @@
 import React from "react";
 import Todologo from "../assets/Todologo.png";
+
 const Navbar = () => {
   return (
     <nav className="h-14 bg-gradient-to-r from-violet-500 to-fuchsia-500 justify-between text-white flex ">
@@ -11,6 +12,7 @@ const Navbar = () => {
         <li className="cursor-pointer hover:font-bold transition-all"> About 😎 </li>
         <li className="cursor-pointer hover:font-bold transition-all"> Work 💼 </li>
       </ul>
+     
     </nav>
   );
 };

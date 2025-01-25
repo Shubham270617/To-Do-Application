@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ThemeSwithButton from "./components/ThemeSwithButton"
 import Navbar from "./components/Navbar";
 import { v4 as uuidv4 } from 'uuid';
 import { FaUserEdit } from "react-icons/fa";
@@ -11,6 +12,7 @@ const [todo, setTodo] = useState("")
 const [todos, setTodos] = useState([])
 const [showFinished, setshowFinished] = useState(true)
 
+
 useEffect(() => {
   let todoString = localStorage.getItem("todos")
   if(todoString){
@@ -19,6 +21,7 @@ useEffect(() => {
     setTodos(todos)
   }
 }, [])
+
 
 
 const saveToLS = () =>{
@@ -81,8 +84,9 @@ saveToLS()
   return (
     <>
       <Navbar />
+      <ThemeSwithButton/>
       <div className="mx-3 md:container md:mx-auto bg-gradient-to-r from-cyan-400 to-blue-500 my-5 rounded-xl p-6 min-h-[80vh] md:w-[40%]">    
-      <h1 className="font-bold text-center text-3xl text-yellow-200 ">|| Your Daily 🚀 Todo Application || </h1>
+      <h1 className="font-bold text-center text-3xl text-yellow-200">|| Your Daily 🚀 Todo Application || </h1>
         <div className="addTodo my-5 flex flex-col gap-4">
           <h2 className="text-xl font-bold text-fuchsia-800 "> Enter Your Work 💻 </h2>
           <div className="flex">
