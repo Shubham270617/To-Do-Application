@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+/* Light Mode (default) */
+body {
     background-color:#DDD0C8;
-}
+    color: #111827;
+    transition: all 0.3s ease;
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: #e5e5e5;
+  }
+  

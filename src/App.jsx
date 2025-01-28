@@ -11,7 +11,21 @@ function App() {
 const [todo, setTodo] = useState("")
 const [todos, setTodos] = useState([])
 const [showFinished, setshowFinished] = useState(true)
+const [isDarkMode, setIsDarkMode] = useState(() => {
+  return localStorage.getItem("theme") === "dark";
+});
 
+  // Sync theme with localStorage and body class
+  useEffect(() => {
+    const bodyClass = document.body.classList;
+    if (isDarkMode) {
+      bodyClass.add("dark-mode");
+      localStorage.setItem("theme", "dark");
+    } else {
+      bodyClass.remove("dark-mode");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
 
 useEffect(() => {
   let todoString = localStorage.getItem("todos")
@@ -84,7 +98,8 @@ saveToLS()
   return (
     <>
       <Navbar />
-      <ThemeSwithButton/>
+      <ThemeSwithButton toggleTheme={() => setIsDarkMode((prev) => !prev)} isDarkMode={isDarkMode}/>
+
       <div className="mx-3 md:container md:mx-auto bg-gradient-to-r from-cyan-400 to-blue-500 my-5 rounded-xl p-6 min-h-[80vh] md:w-[40%]">    
       <h1 className="font-bold text-center text-3xl text-yellow-200">|| Your Daily 🚀 Todo Application || </h1>
         <div className="addTodo my-5 flex flex-col gap-4">
